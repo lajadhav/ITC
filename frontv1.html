@@ -1,163 +1,159 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7e9;
+            border: 1px solid #28a745;
+            border-radius: 4px;
+            color: #155724;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Loan Approval Prediction&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f4f4f9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.form-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 500px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #ffffff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.form-group {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>label {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>input, select, button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 5px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 4px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #5cb85c;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #4cae4c;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.result {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #e9ecef;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 4px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;div class="form-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Loan Approval Prediction&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;form id="loanForm"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="gender"&gt;Gender&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="gender" name="gender"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Male"&gt;Male&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Female"&gt;Female&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="married"&gt;Married&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="married" name="married"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Yes"&gt;Yes&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="No"&gt;No&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="dependents"&gt;Dependents&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="number" id="dependents" name="dependents" min="0" placeholder="Number of Dependents"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="education"&gt;Education&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="education" name="education"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Graduate"&gt;Graduate&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Not Graduate"&gt;Not Graduate&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="self_employed"&gt;Self Employed&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="self_employed" name="self_employed"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Yes"&gt;Yes&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="No"&gt;No&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="applicantIncome"&gt;Applicant Income&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="number" id="applicantIncome" name="applicantIncome" placeholder="Enter income"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="coapplicantIncome"&gt;Co-applicant Income&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="number" id="coapplicantIncome" name="coapplicantIncome" placeholder="Enter co-applicant income"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="loanAmount"&gt;Loan Amount&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="number" id="loanAmount" name="loanAmount" placeholder="Enter loan amount"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="loanTerm"&gt;Loan Term&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="number" id="loanTerm" name="loanTerm" placeholder="Loan term in months"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="creditHistory"&gt;Credit History&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="creditHistory" name="creditHistory"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="1"&gt;Good&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="0"&gt;Poor&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="propertyArea"&gt;Property Area&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="propertyArea" name="propertyArea"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Urban"&gt;Urban&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Semiurban"&gt;Semiurban&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Rural"&gt;Rural&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="submitForm()"&gt;Check Approval&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="result" class="result"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function submitForm() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const formData = new FormData(document.getElementById("loanForm"));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const data = Object.fromEntries(formData.entries());</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const response = await fetch("http://127.0.0.1:5000/predict", {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>method: "POST",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>headers: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>"Content-Type": "application/json"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>body: JSON.stringify(data)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const result = await response.json();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("result").innerText = "Loan Status: " + result.loan_status;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+<div class="form-container">
+    <h2>Loan Approval Prediction</h2>
+    <form id="loanForm">
+        <div class="form-group">
+            <label for="applicantIncome">Applicant Income:</label>
+            <input type="number" id="applicantIncome" name="applicantIncome" required>
+        </div>
+        <div class="form-group">
+            <label for="coapplicantIncome">Coapplicant Income:</label>
+            <input type="number" id="coapplicantIncome" name="coapplicantIncome">
+        </div>
+        <div class="form-group">
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" name="loanAmount" required>
+        </div>
+        <div class="form-group">
+            <label for="loanAmountTerm">Loan Amount Term:</label>
+            <input type="number" id="loanAmountTerm" name="loanAmountTerm" required>
+        </div>
+        <div class="form-group">
+            <label for="creditHistory">Credit History (1 for Yes, 0 for No):</label>
+            <select id="creditHistory" name="creditHistory">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender (1 for Male, 0 for Female):</label>
+            <select id="gender" name="gender">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="married">Married (1 for Yes, 0 for No):</label>
+            <select id="married" name="married">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="education">Education (1 for Not Graduate, 0 for Graduate):</label>
+            <select id="education" name="education">
+                <option value="1">Not Graduate</option>
+                <option value="0">Graduate</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="selfEmployed">Self Employed (1 for Yes, 0 for No):</label>
+            <select id="selfEmployed" name="selfEmployed">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="propertyAreaSemiurban">Property Area (1 for Semiurban, 0 otherwise):</label>
+            <select id="propertyAreaSemiurban" name="propertyAreaSemiurban">
+                <option value="1">Semiurban</option>
+                <option value="0">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="propertyAreaUrban">Property Area (1 for Urban, 0 otherwise):</label>
+            <select id="propertyAreaUrban" name="propertyAreaUrban">
+                <option value="1">Urban</option>
+                <option value="0">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dependents">Dependents (Enter 0, 1, 2, or 3+):</label>
+            <input type="text" id="dependents" name="dependents" required>
+        </div>
+        <button type="button" onclick="submitForm()">Check Loan Approval</button>
+    </form>
+    <div id="result" class="result" style="display:none;"></div>
+</div>
+
+<script>
+    async function submitForm() {
+        const formData = new FormData(document.getElementById('loanForm'));
+        const data = Object.fromEntries(formData.entries());
+
+        const response = await fetch('http://127.0.0.1:5000/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerText = result.message;
+        resultDiv.style.display = 'block';
+    }
+</script>
+
 </body>
 </html>
